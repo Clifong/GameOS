@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-#Support for command line options
+#Support for command line options. WIP
 for arg in "$@"
 do
   echo $arg
