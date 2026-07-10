@@ -1,4 +1,4 @@
-#include <mem_node.h>
+#include <kernel/mem/mem_node.h>
 #include <stddef.h>
 
 void free_and_merge(MemNode* toFree) {
@@ -18,5 +18,5 @@ void allocate(MemNode* node, size_t size) {
     };
     node->_size = size;
     node->_is_free = false;
-    node->_next = new_neigh;
+    node->_next = &new_neigh;
 }
