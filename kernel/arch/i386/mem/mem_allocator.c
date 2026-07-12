@@ -44,7 +44,7 @@ void* kmalloc(size_t size) {
 
 void kfree(void* ptr) {
     if (head == NULL) {
-        printf("FREE ILLEGAL");
+        printf("FREE ILLEGAL\n");
         return;
     }
     MemNode* cast_ptr = (MemNode*) ptr;
