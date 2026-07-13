@@ -2,8 +2,14 @@
 
 #include <kernel/tty.h>
 #include <kernel/mem/mem_allocator.h>
+#include <kernel/gdt/gdt.h>
+
+void before_main(void) {
+    gdt_install();
+}
 
 void kernel_main(void) {
+
 	terminal_initialize();
 	printf("Hello, kernel World!\n");
 
