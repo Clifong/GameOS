@@ -12,6 +12,8 @@ extern "C" {
 int printf(const char* __restrict, ...);
 int putchar(int);
 int puts(const char*);
+unsigned char inportb (unsigned short _port);
+void outportb (unsigned short _port, unsigned short _char);
 
 #ifdef __cplusplus
 }

@@ -1,5 +1,6 @@
 #include <kernel/idt/idt.h>
 #include <kernel/isrs/isrs.h>
+#include <kernel/regs.h>
 #include <stdio.h>
 
 extern void isr0();
