@@ -4,7 +4,6 @@
 #include <stdint.h>
 #include <stddef.h>
 
-extern void gdt_flush();
 void gdt_install();
 
 #endif 
