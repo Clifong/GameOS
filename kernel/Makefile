@@ -29,7 +29,7 @@ LIBS:=$(LIBS) $(KERNEL_ARCH_LIBS)
 
 OBJS=\
 $(KERNEL_ARCH_OBJS) \
-kernel/kernel.o \
+kernel/main.o \
 
 .PHONY: all clean install install-headers install-kernel
 .SUFFIXES: .o .c .S

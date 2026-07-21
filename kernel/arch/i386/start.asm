@@ -6,6 +6,7 @@
 global start
 start:
     mov esp, _sys_stack     ; This points the stack to our new stack area
+    push esp
     jmp stublet
 
 ; This part MUST be 4byte aligned, so we solve that issue using 'ALIGN 4'
@@ -37,8 +38,13 @@ mboot:
 ; will insert an 'extern kernel_main', followed by 'call kernel_main', right
 ; before the 'jmp $'.
 stublet:
-	extern kernel_main
-    call kernel_main
+    ;push the location of the initial stack
+    push esp
+    ;push the incoming multiboot headers
+    push eax
+    push ebx 
+	extern main
+    call main
     jmp $
 
 

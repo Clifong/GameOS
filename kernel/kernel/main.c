@@ -6,14 +6,18 @@
 #include <kernel/idt/idt.h>
 #include <kernel/isrs/isrs.h>
 #include <kernel/irq/irq.h>
+#include <kernel/timer/timer.h>
+#include <kernel/keyboard/keyboard.h>
 
-void kernel_main(void) {
+void main() {
 
-    // gdt_install();
+    gdt_install();
     // idt_install();
     isrs_install();
-    irq_install();
-    __asm__ __volatile__ ("sti");
+    // irq_install();
+    // __asm__ __volatile__ ("sti");
+    timer_install();
+    keyboard_install();
     
 	terminal_initialize();
 	// printf("Hello, kernel World!\n");

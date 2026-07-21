@@ -11,14 +11,14 @@ struct gdt_entry {
     unsigned char base_middle;
     unsigned short limit_low; 
     unsigned short base_low; 
-}__attribute__((packed));
+} __attribute__((packed));
 
 // The LGDT register needs to store a pointer
 // that points to our GDT table
 struct gdt_ptr {
     unsigned short limit;
     unsigned int base;
-}__attribute__((packed));
+} __attribute__((packed));
 
 //3 entries: null segment, code segment, data segment
 //null being the first entry is the DEFAULT for most OS
@@ -69,12 +69,12 @@ void gdt_install() {
     Granularity: 4KB blocks
     Opcode: 32-bit
     */
-   gdt_set_gate(1, 0, 0xFFFFFFFF, 0x9A, 0xCF);
+    gdt_set_gate(1, 0, 0xFFFFFFFF, 0x9A, 0xCF);
 
-   /*
-   Set up data segment (3rd entry). Identical to
-   code segment
-   */
+    /*
+    Set up data segment (3rd entry). Identical to
+    code segment
+    */
     gdt_set_gate(2, 0, 0xFFFFFFFF, 0x92, 0xCF);
 
     //Flush out and install new gdt
